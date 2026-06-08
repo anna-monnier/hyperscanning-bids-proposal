@@ -1,13 +1,18 @@
 # Hyperscanning EEG and BIDS: A Practical Proposal
 
-**Authors:** Anne Monnier, Guillaume Dumas — Université de Montréal  
+**Author:** Anne Monnier — Université de Montréal  
 **Contribution to:** [BIDS Issue #402 — Hyperscanning data storage](https://github.com/bids-standard/bids-specification/issues/402)
 
 ---
 
 ## Overview
 
-This repository presents a concrete, minimal proposal for organizing **hyperscanning EEG data** in BIDS, grounded in a real research project (SCAALE — autism & social neuroscience, CHU Sainte-Justine / UdeM).
+This repository presents a **minimal and practical proposal** for organizing **hyperscanning EEG data** in BIDS, grounded in a real clinical research project (SCAALE — autism & social neuroscience, CHU Sainte-Justine / UdeM).
+
+It is intended for anyone doing multimodal hyperscanning using:
+- A **LabRecorder/LSL** setup producing XDF files
+- **Behavioral video** recordings (multiple cameras)
+- **Subjective ratings** of felt togetherness (e.g. IOS scale — Aron et al., 1992)
 
 We provide:
 - A **synthetic dataset** (3 dyads × 10 tasks) mirroring the real SCAALE pilot structure
@@ -18,7 +23,7 @@ We provide:
 
 ## Our Core Proposal
 
-Add a `dyad_id` column to `participants.tsv`:
+The simplest possible solution: add a `dyad_id` column to `participants.tsv`.
 
 ```tsv
 participant_id  role    group        dyad_id
@@ -41,7 +46,6 @@ sub-004         child   autistic     dyad-002
 
 ## Repository Structure
 
-```
 hyperscanning-bids-proposal/
 │
 ├── generate_synthetic_data.py   ← Step 1: creates sourcedata/
@@ -71,8 +75,7 @@ hyperscanning-bids-proposal/
 │   └── ... (6 participants)
 │
 └── notebooks/
-    └── hyperscanning_bids_proposal.ipynb
-```
+└── hyperscanning_bids_proposal.ipynb
 
 ---
 
@@ -96,21 +99,32 @@ python bidsify.py
 ## Additional Proposals
 
 ### IOS ratings → `events.tsv`
-Post-task subjective ratings vary per task — stored as a custom column in `events.tsv`.
+Post-task subjective ratings (IOS — Inclusion of the Other in the Self, Aron et al., 1992) vary per task and per session — they are event-level measures, not stable participant traits. We propose storing them as a custom column in `events.tsv` rather than `phenotype/`.
+
+### Behavioral video and dyad-level data
+Raw videos remain in `sourcedata/`. Task-segmented videos and dyad-level annotations go into `derivatives/` because they are **shared between both participants** and cannot belong to `sub-001/` or `sub-002/` alone:
+
+derivatives/
+video-segmented/dyad-001/    ← shared between both participants
+openpose/sub-001/motion/     ← per-subject pose vectors (BIDS Motion ✅)
+openpose/sub-002/motion/     ← per-subject pose vectors (BIDS Motion ✅)
+video-annotation/dyad-001/   ← leader/follower annotations
 
 ### Open questions for the community
 
-| Question | Status |
-|----------|--------|
-| Shared temporal reference (XDF/LSL) | ⚠️ Open |
-| Dyad-level derivatives (PLV) | ❌ No convention |
-| Raw video (3 cameras, dyad-level) | ❌ No BEP |
-| Post-hoc annotations (leader/follower) | ❌ No convention |
+| Question | Our position | Status |
+|----------|-------------|--------|
+| Post-task ratings (IOS) | Custom column in `events.tsv` | ✅ Proposed |
+| Shared temporal reference (XDF) | Implicit via `dyad_id` + `sourcedata/` | ✅ Resolved |
+| Dyad-level derivatives (PLV) | No BIDS convention needed for local analysis; future BEP for cross-lab sharing | ⚠️ Future BEP |
+| Behavioral video | `sourcedata/` raw; `derivatives/video-segmented/dyad-001/` for segmented | ⚠️ Workaround |
+| Post-hoc annotations (leader/follower) | `derivatives/video-annotation/dyad-001/` | ⚠️ Workaround |
 
 ---
 
 ## References
 
+- Aron, A., Aron, E. N., & Smollan, D. (1992). Inclusion of Other in the Self Scale. *Journal of Personality and Social Psychology*, 63(4), 596–612.
 - Poldrack et al. (2024). The past, present, and future of BIDS. *Imaging Neuroscience*. https://doi.org/10.1162/imag_a_00103
 - Pernet et al. (2019). EEG-BIDS. *Scientific Data*. https://doi.org/10.1038/s41597-019-0104-8
 - Appelhoff et al. (2019). MNE-BIDS. *JOSS*. https://doi.org/10.21105/joss.01896
@@ -118,3 +132,4 @@ Post-task subjective ratings vary per task — stored as a custom column in `eve
 - Monnier et al. (2025). Now is the time. *Neuroscience of Consciousness*. https://doi.org/10.1093/nc/niaf052
 - BIDS Issue #402: https://github.com/bids-standard/bids-specification/issues/402
 - Neurostars: https://neurostars.org/t/bids-structure-for-longitudinal-dyadic-data/26173
+- NeuroBlueprint Issue #4: https://github.com/neuroinformatics-unit/NeuroBlueprint/issues/4
