@@ -46,36 +46,26 @@ sub-004         child   autistic     dyad-002
 
 ## Repository Structure
 
+```
 hyperscanning-bids-proposal/
-│
 ├── generate_synthetic_data.py   ← Step 1: creates sourcedata/
 ├── bidsify.py                   ← Step 2: sourcedata/ → rawdata/
 ├── requirements.txt
-│
-├── sourcedata/                  ← raw data (XDF + IOS + video)
+├── sourcedata/
 │   ├── dyad-001/
 │   │   ├── EEG/dyad-001_eeg.xdf
 │   │   ├── IOS/ios_sub-001.tsv
 │   │   └── video/cam-*.mp4
 │   ├── dyad-002/
 │   └── dyad-003/
-│
-├── rawdata/                     ← BIDS dataset (already generated)
-│   ├── dataset_description.json
-│   ├── participants.tsv         ← dyad_id proposal
-│   ├── participants.json
+├── rawdata/
+│   ├── participants.tsv         ← ⭐ dyad_id proposal
 │   ├── events.json
-│   ├── task-01restEyesOpen_eeg.json
-│   ├── ... (10 task sidecars)
-│   ├── sub-001/ses-01/eeg/
-│   │   ├── sub-001_ses-01_task-01restEyesOpen_eeg.vhdr
-│   │   ├── sub-001_ses-01_task-01restEyesOpen_events.tsv  ← IOS_rating column
-│   │   ├── sub-001_ses-01_task-01restEyesOpen_channels.tsv
-│   │   └── ... (10 tasks × 4 files)
-│   └── ... (6 participants)
-│
+│   ├── task-XX_eeg.json (×10)
+│   └── sub-001/ses-01/eeg/     ← 10 tasks × 4 files per participant
 └── notebooks/
-└── hyperscanning_bids_proposal.ipynb
+    └── hyperscanning_bids_proposal.ipynb
+```
 
 ---
 
