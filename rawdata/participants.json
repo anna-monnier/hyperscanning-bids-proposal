@@ -1,0 +1,19 @@
+{
+  "role": {
+    "Description": "Role in the dyad",
+    "Levels": {
+      "mother": "Mother",
+      "child": "Child"
+    }
+  },
+  "group": {
+    "Description": "Diagnostic group",
+    "Levels": {
+      "autistic": "Autistic",
+      "non-autistic": "Non-autistic"
+    }
+  },
+  "dyad_id": {
+    "Description": "Dyad identifier linking participants recorded simultaneously. Proposed BIDS extension for hyperscanning. See https://github.com/bids-standard/bids-specification/issues/402"
+  }
+}

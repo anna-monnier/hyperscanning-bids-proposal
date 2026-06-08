@@ -1,0 +1,15 @@
+{
+  "onset": {
+    "Description": "Task onset in seconds (includes 2s padding)"
+  },
+  "duration": {
+    "Description": "Task duration in seconds"
+  },
+  "trial_type": {
+    "Description": "Task label"
+  },
+  "IOS_rating": {
+    "Description": "Inclusion of the Other in the Self (Aron et al. 1992). Post-task subjective rating 1-7. Stored as custom column in events.tsv \u2014 our proposed convention.",
+    "Units": "Likert 1-7"
+  }
+}

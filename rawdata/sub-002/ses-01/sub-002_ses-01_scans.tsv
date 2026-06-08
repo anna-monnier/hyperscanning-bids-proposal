@@ -1,0 +1,11 @@
+filename	dyad_id
+eeg/sub-002_ses-01_task-01restEyesOpen_eeg.vhdr	dyad-001
+eeg/sub-002_ses-01_task-02restEyesClosed_eeg.vhdr	dyad-001
+eeg/sub-002_ses-01_task-03imitation_eeg.vhdr	dyad-001
+eeg/sub-002_ses-01_task-04verbal_eeg.vhdr	dyad-001
+eeg/sub-002_ses-01_task-05restEyesOpen_eeg.vhdr	dyad-001
+eeg/sub-002_ses-01_task-06restEyesClosed_eeg.vhdr	dyad-001
+eeg/sub-002_ses-01_task-07verbal_eeg.vhdr	dyad-001
+eeg/sub-002_ses-01_task-08imitation_eeg.vhdr	dyad-001
+eeg/sub-002_ses-01_task-09restEyesOpen_eeg.vhdr	dyad-001
+eeg/sub-002_ses-01_task-10restEyesClosed_eeg.vhdr	dyad-001

@@ -1,0 +1,13 @@
+{
+  "Name": "Synthetic Hyperscanning EEG Dataset",
+  "BIDSVersion": "1.10.0",
+  "DatasetType": "raw",
+  "Authors": [
+    "Anne Monnier",
+    "Guillaume Dumas"
+  ],
+  "License": "CC0",
+  "ReferencesAndLinks": [
+    "https://github.com/bids-standard/bids-specification/issues/402"
+  ]
+}

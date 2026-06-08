@@ -1,0 +1,9 @@
+{
+  "TaskName": "task-05restEyesOpen",
+  "SamplingFrequency": 500,
+  "EEGReference": "CMS",
+  "PowerLineFrequency": 60,
+  "RecordingDuration": 64.0,
+  "EEGChannelCount": 128,
+  "ECGChannelCount": 1
+}

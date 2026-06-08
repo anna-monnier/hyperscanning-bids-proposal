@@ -1,0 +1,6 @@
+pyxdf>=1.16
+mne>=1.11
+mne-bids>=0.15
+pandas>=2.2
+numpy>=1.26
+jupyter>=1.0

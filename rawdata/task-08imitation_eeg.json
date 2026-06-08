@@ -1,0 +1,9 @@
+{
+  "TaskName": "task-08imitation",
+  "SamplingFrequency": 500,
+  "EEGReference": "CMS",
+  "PowerLineFrequency": 60,
+  "RecordingDuration": 124.0,
+  "EEGChannelCount": 128,
+  "ECGChannelCount": 1
+}

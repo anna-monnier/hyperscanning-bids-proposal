@@ -1,0 +1,11 @@
+session_id	participant_code	measurement_index	value	label
+ses-01	sub-005	1	5	task-01restEyesOpen
+ses-01	sub-005	2	6	task-02restEyesClosed
+ses-01	sub-005	3	1	task-03imitation
+ses-01	sub-005	4	6	task-04verbal
+ses-01	sub-005	5	4	task-05restEyesOpen
+ses-01	sub-005	6	4	task-06restEyesClosed
+ses-01	sub-005	7	5	task-07verbal
+ses-01	sub-005	8	3	task-08imitation
+ses-01	sub-005	9	7	task-09restEyesOpen
+ses-01	sub-005	10	1	task-10restEyesClosed

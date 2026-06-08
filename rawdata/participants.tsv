@@ -1,0 +1,7 @@
+participant_id	role	group	dyad_id
+sub-001	mother	non-autistic	dyad-001
+sub-002	child	non-autistic	dyad-001
+sub-003	mother	non-autistic	dyad-002
+sub-004	child	autistic	dyad-002
+sub-005	mother	non-autistic	dyad-003
+sub-006	child	non-autistic	dyad-003

@@ -1,0 +1,8 @@
+BrainVision Data Exchange Header File Version 1.0
+[Common Infos]
+DataFile=sub-005_ses-01_task-02restEyesClosed_eeg.eeg
+MarkerFile=sub-005_ses-01_task-02restEyesClosed_eeg.vmrk
+DataFormat=BINARY
+DataOrientation=MULTIPLEXED
+NumberOfChannels=129
+SamplingInterval=2000
